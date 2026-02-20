@@ -1,0 +1,260 @@
+/**
+ * Style Preview Tool Styles
+ *
+ * Styles for the style preview tool including:
+ * - Split view layout
+ * - Floating panel
+ * - Responsive behavior
+ */
+
+/* ===== CSS Variables Fallbacks ===== */
+/* These are fallback values used when theme variables are not set */
+
+:root {
+  /* Ensure base variables are available */
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+  --color-accent: #f59e0b;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #06b6d4;
+
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f3f4f6;
+  --color-background-tertiary: #e5e7eb;
+  --color-background-elevated: #ffffff;
+  --color-background-overlay: rgba(0, 0, 0, 0.5);
+
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+  --color-text-disabled: #d1d5db;
+  --color-text-inverse: #ffffff;
+
+  --color-border-default: #e5e7eb;
+  --color-border-subtle: #f3f4f6;
+  --color-border-strong: #d1d5db;
+
+  --border-radius-none: 0;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  --border-radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal: 1040;
+  --z-popover: 1050;
+  --z-tooltip: 1060;
+
+  --spacing-base: 1rem;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-28: 7rem;
+  --spacing-32: 8rem;
+}
+
+/* ===== Panel Animations ===== */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ===== Scrollbar Styles ===== */
+
+.preview-container ::-webkit-scrollbar,
+.style-preview-panel ::-webkit-scrollbar,
+.history-timeline ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.preview-container ::-webkit-scrollbar-track,
+.style-preview-panel ::-webkit-scrollbar-track,
+.history-timeline ::-webkit-scrollbar-track {
+  background: var(--color-background-secondary, #f3f4f6);
+  border-radius: 4px;
+}
+
+.preview-container ::-webkit-scrollbar-thumb,
+.style-preview-panel ::-webkit-scrollbar-thumb,
+.history-timeline ::-webkit-scrollbar-thumb {
+  background: var(--color-border-default, #d1d5db);
+  border-radius: 4px;
+}
+
+.preview-container ::-webkit-scrollbar-thumb:hover,
+.style-preview-panel ::-webkit-scrollbar-thumb:hover,
+.history-timeline ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary, #9ca3af);
+}
+
+/* ===== View Header Styles ===== */
+
+.view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-default, #e5e7eb);
+}
+
+.view-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #1f2937);
+}
+
+.view-label {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ===== Original Content View ===== */
+
+.original-content-view .view-label {
+  background-color: var(--color-background-secondary, #f3f4f6);
+  color: var(--color-text-secondary, #6b7280);
+}
+
+/* ===== Preview Content View ===== */
+
+.preview-content-view .view-label {
+  background-color: var(--color-primary, #3b82f6);
+  color: var(--color-text-inverse, #ffffff);
+}
+
+/* ===== Responsive Grid Helpers ===== */
+
+@media (max-width: 640px) {
+  .selector-options.selector-default,
+  .selector-options.selector-layout,
+  .selector-options.selector-font {
+    grid-template-columns: 1fr;
+  }
+
+  .selector-options.selector-color {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .action-button {
+    flex: 1 1 calc(50% - 0.25rem);
+    min-width: 100px;
+  }
+
+  .download-button {
+    flex: 1 1 100%;
+  }
+
+  .entry-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .entry-separator {
+    display: none;
+  }
+}
+
+/* ===== Print Styles ===== */
+
+@media print {
+  .style-preview-panel {
+    display: none !important;
+  }
+
+  .split-view {
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  .original-content-view {
+    display: none !important;
+  }
+}
+
+/* ===== Reduced Motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .style-preview-panel,
+  .timeline-entry,
+  .selector-option,
+  .action-button,
+  .split-view {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ===== Dark Mode Support (Auto) ===== */
+
+@media (prefers-color-scheme: dark) {
+  /* Note: These are only fallbacks when theme is not loaded */
+  :root {
+    --color-background-primary: #1a1a1a;
+    --color-background-secondary: #2d2d2d;
+    --color-background-tertiary: #3d3d3d;
+    --color-text-primary: #e5e5e5;
+    --color-text-secondary: #a0a0a0;
+    --color-border-default: #404040;
+  }
+}
+
+/* ===== High Contrast Mode ===== */
+
+@media (prefers-contrast: high) {
+  .selector-option,
+  .action-button,
+  .timeline-entry {
+    border-width: 2px;
+  }
+
+  .selector-option.selected,
+  .action-button.primary,
+  .action-button.secondary.active {
+    border-width: 3px;
+  }
+}

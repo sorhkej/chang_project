@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Theme Switcher</title>
+    <!-- Critical theme initialization script to prevent FOUC -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme-preference');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const themeId = savedTheme || (prefersDark ? 'dark-night' : 'light-day');
+
+        // Minimal CSS variables for critical rendering path
+        const themes = {
+          'light-day': { '--color-background-primary': '#ffffff', '--color-text-primary': '#1a1a1a' },
+          'dark-night': { '--color-background-primary': '#0a0e27', '--color-text-primary': '#e4e9ff' },
+          'ocean-blue': { '--color-background-primary': '#f0f7ff', '--color-text-primary': '#0c2340' },
+          'forest-green': { '--color-background-primary': '#f7fcf7', '--color-text-primary': '#0a1f0a' },
+          'sunset-orange': { '--color-background-primary': '#fffbf5', '--color-text-primary': '#1a0a00' },
+          'cyber-purple': { '--color-background-primary': '#1a0a2e', '--color-text-primary': '#f0e6ff' },
+          'minimal-gray': { '--color-background-primary': '#f8f9fa', '--color-text-primary': '#212529' }
+        };
+
+        const theme = themes[themeId] || themes['light-day'];
+        Object.entries(theme).forEach(([key, value]) => {
+          document.documentElement.style.setProperty(key, value);
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+/**
+ * Horizontal Scroll Layout Styles
+ * Horizontal scrolling layout for dynamic content flow
+ */
+
+.horizontal-scroll-container {
+  --scroll-gap: 2rem;
+  --scroll-item-width: 300px;
+
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: var(--spacing-4);
+}
+
+.horizontal-scroll-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: var(--scroll-gap);
+  padding: var(--spacing-2) 0;
+  width: max-content;
+  min-width: 100%;
+}
+
+.horizontal-scroll-item {
+  flex: 0 0 auto;
+  width: var(--scroll-item-width);
+  max-width: 80vw;
+  background-color: var(--color-background-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.horizontal-scroll-item:hover {
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.02);
+}
+
+/* Custom scrollbar styling */
+.horizontal-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-track {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-full);
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--border-radius-full);
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Firefox scrollbar styling */
+.horizontal-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-background-secondary);
+}
+
+@media (max-width: 768px) {
+  .horizontal-scroll-container {
+    --scroll-gap: 1rem;
+    --scroll-item-width: 250px;
+    padding: var(--spacing-3);
+  }
+}

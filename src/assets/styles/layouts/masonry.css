@@ -1,0 +1,51 @@
+/**
+ * Masonry Layout Styles
+ * Waterfall/flow layout for organic content arrangement
+ */
+
+.masonry-container {
+  --masonry-columns: 3;
+  --masonry-gap: 1.5rem;
+
+  column-count: var(--masonry-columns);
+  column-gap: var(--masonry-gap);
+  width: 100%;
+  padding: var(--spacing-4);
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: var(--masonry-gap);
+  background-color: var(--color-background-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-normal);
+}
+
+.masonry-item:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.masonry-item.tall {
+  grid-row: span 2;
+}
+
+.masonry-item.wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 1024px) {
+  .masonry-container {
+    --masonry-columns: 2;
+    --masonry-gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .masonry-container {
+    --masonry-columns: 1;
+    --masonry-gap: 0.75rem;
+  }
+}

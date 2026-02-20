@@ -1,0 +1,300 @@
+/**
+ * CSS Variables - Theme tokens
+ *
+ * These variables are set by the theme system and should not be modified directly.
+ * Theme changes are applied through the useTheme composable.
+ */
+
+/* ============================================================================
+   Color Variables
+   ============================================================================ */
+
+/* Application Theme Variables (app- prefix) */
+:root {
+  --app-color-primary: #3b82f6;
+  --app-color-secondary: #8b5cf6;
+  --app-color-accent: #f59e0b;
+  --app-color-success: #10b981;
+  --app-color-warning: #f59e0b;
+  --app-color-error: #ef4444;
+  --app-color-info: #06b6d4;
+
+  --app-color-background-primary: #ffffff;
+  --app-color-background-secondary: #f9fafb;
+  --app-color-background-tertiary: #f3f4f6;
+  --app-color-background-elevated: #ffffff;
+  --app-color-background-overlay: rgba(0, 0, 0, 0.5);
+
+  --app-color-text-primary: #1a1a1a;
+  --app-color-text-secondary: #6b7280;
+  --app-color-text-tertiary: #9ca3af;
+  --app-color-text-disabled: #d1d5db;
+  --app-color-text-inverse: #ffffff;
+
+  --app-color-border-default: #e5e7eb;
+  --app-color-border-subtle: #f3f4f6;
+  --app-color-border-strong: #d1d5db;
+}
+
+/* Global Brand Colors (reference app- variables) */
+:root {
+  --color-primary: var(--app-color-primary);
+  --color-secondary: var(--app-color-secondary);
+  --color-accent: var(--app-color-accent);
+  --color-success: var(--app-color-success);
+  --color-warning: var(--app-color-warning);
+  --color-error: var(--app-color-error);
+  --color-info: var(--app-color-info);
+
+  /* Background Colors */
+  --color-background-primary: var(--app-color-background-primary);
+  --color-background-secondary: var(--app-color-background-secondary);
+  --color-background-tertiary: var(--app-color-background-tertiary);
+  --color-background-elevated: var(--app-color-background-elevated);
+  --color-background-overlay: var(--app-color-background-overlay);
+
+  /* Text Colors */
+  --color-text-primary: var(--app-color-text-primary);
+  --color-text-secondary: var(--app-color-text-secondary);
+  --color-text-tertiary: var(--app-color-text-tertiary);
+  --color-text-disabled: var(--app-color-text-disabled);
+  --color-text-inverse: var(--app-color-text-inverse);
+
+  /* Border Colors */
+  --color-border-default: var(--app-color-border-default);
+  --color-border-subtle: var(--app-color-border-subtle);
+  --color-border-strong: var(--app-color-border-strong);
+}
+
+/* ============================================================================
+   Typography Variables
+   ============================================================================ */
+
+:root {
+  /* Font Families */
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'Fira Code', 'Monaco', 'Consolas', monospace;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+}
+
+/* ============================================================================
+   Spacing Variables
+   ============================================================================ */
+
+:root {
+  --spacing-base: 1rem;
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  --spacing-40: 10rem;
+  --spacing-48: 12rem;
+  --spacing-64: 16rem;
+}
+
+/* ============================================================================
+   Layout Variables
+   ============================================================================ */
+
+:root {
+  /* Border Radius */
+  --border-radius-none: 0;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Z-Index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal: 1040;
+  --z-popover: 1050;
+  --z-tooltip: 1060;
+}
+
+/* ============================================================================
+   Layout Pattern Variables
+   ============================================================================ */
+
+:root {
+  /* Grid Layout */
+  --grid-columns: 3;
+  --grid-gap: 1.5rem;
+  --grid-min-width: 280px;
+
+  /* Masonry Layout */
+  --masonry-columns: 3;
+  --masonry-gap: 1.5rem;
+
+  /* List Layout */
+  --list-gap: 1rem;
+  --list-max-width: 800px;
+
+  /* Scroll Layout */
+  --scroll-gap: 2rem;
+  --scroll-item-width: 300px;
+}
+
+/* ============================================================================
+   Preview Scope Variables
+   ============================================================================ */
+
+/* Preview scope - isolated theme variables for the preview panel */
+.preview-scope {
+  /* Brand Colors */
+  --preview-color-primary: #3b82f6;
+  --preview-color-secondary: #8b5cf6;
+  --preview-color-accent: #f59e0b;
+  --preview-color-success: #10b981;
+  --preview-color-warning: #f59e0b;
+  --preview-color-error: #ef4444;
+  --preview-color-info: #06b6d4;
+
+  /* Background Colors */
+  --preview-color-background-primary: #ffffff;
+  --preview-color-background-secondary: #f9fafb;
+  --preview-color-background-tertiary: #f3f4f6;
+  --preview-color-background-elevated: #ffffff;
+  --preview-color-background-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Text Colors */
+  --preview-color-text-primary: #1a1a1a;
+  --preview-color-text-secondary: #6b7280;
+  --preview-color-text-tertiary: #9ca3af;
+  --preview-color-text-disabled: #d1d5db;
+  --preview-color-text-inverse: #ffffff;
+
+  /* Border Colors */
+  --preview-color-border-default: #e5e7eb;
+  --preview-color-border-subtle: #f3f4f6;
+  --preview-color-border-strong: #d1d5db;
+
+  /* Font Families */
+  --preview-font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --preview-font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --preview-font-family-mono: 'Fira Code', 'Monaco', 'Consolas', monospace;
+
+  /* Font Sizes */
+  --preview-font-size-xs: 0.75rem;
+  --preview-font-size-sm: 0.875rem;
+  --preview-font-size-base: 1rem;
+  --preview-font-size-lg: 1.125rem;
+  --preview-font-size-xl: 1.25rem;
+  --preview-font-size-2xl: 1.5rem;
+  --preview-font-size-3xl: 1.875rem;
+  --preview-font-size-4xl: 2.25rem;
+
+  /* Font Weights */
+  --preview-font-weight-light: 300;
+  --preview-font-weight-normal: 400;
+  --preview-font-weight-medium: 500;
+  --preview-font-weight-semibold: 600;
+  --preview-font-weight-bold: 700;
+
+  /* Line Heights */
+  --preview-line-height-tight: 1.25;
+  --preview-line-height-normal: 1.5;
+  --preview-line-height-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --preview-letter-spacing-tight: -0.025em;
+  --preview-letter-spacing-normal: 0;
+  --preview-letter-spacing-wide: 0.025em;
+
+  /* Spacing */
+  --preview-spacing-base: 1rem;
+  --preview-spacing-0: 0;
+  --preview-spacing-1: 0.25rem;
+  --preview-spacing-2: 0.5rem;
+  --preview-spacing-3: 0.75rem;
+  --preview-spacing-4: 1rem;
+  --preview-spacing-5: 1.25rem;
+  --preview-spacing-6: 1.5rem;
+  --preview-spacing-8: 2rem;
+  --preview-spacing-10: 2.5rem;
+  --preview-spacing-12: 3rem;
+  --preview-spacing-16: 4rem;
+  --preview-spacing-20: 5rem;
+  --preview-spacing-24: 6rem;
+  --preview-spacing-32: 8rem;
+  --preview-spacing-40: 10rem;
+  --preview-spacing-48: 12rem;
+  --preview-spacing-64: 16rem;
+
+  /* Border Radius */
+  --preview-border-radius-none: 0;
+  --preview-border-radius-sm: 0.25rem;
+  --preview-border-radius-md: 0.5rem;
+  --preview-border-radius-lg: 0.75rem;
+  --preview-border-radius-xl: 1rem;
+  --preview-border-radius-full: 9999px;
+
+  /* Shadows */
+  --preview-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --preview-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --preview-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --preview-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --preview-transition-fast: 150ms ease;
+  --preview-transition-normal: 250ms ease;
+  --preview-transition-slow: 350ms ease;
+
+  /* Z-Index */
+  --preview-z-dropdown: 1000;
+  --preview-z-sticky: 1020;
+  --preview-z-fixed: 1030;
+  --preview-z-modal: 1040;
+  --preview-z-popover: 1050;
+  --preview-z-tooltip: 1060;
+}
